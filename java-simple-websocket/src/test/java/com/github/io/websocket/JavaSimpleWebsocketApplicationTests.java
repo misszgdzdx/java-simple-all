@@ -1,10 +1,10 @@
-package com.github.io.parent;
+package com.github.io.websocket;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaSimpleAllApplicationTests {
+class JavaSimpleWebsocketApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,13 +1,13 @@
-package com.github.io.parent;
+package com.github.io.websocket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaSimpleAllApplication {
+public class JavaSimpleWebsocketApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JavaSimpleAllApplication.class, args);
+        SpringApplication.run(JavaSimpleWebsocketApplication.class, args);
     }
 
 }
