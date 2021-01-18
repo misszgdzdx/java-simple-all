@@ -26,12 +26,12 @@ public class ShiroConfig {
     /**
      * 拦截器，先判断拦截器，再走realm
      */
-    @Bean
+    @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean factory(SecurityManager securityManager) {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
         Map<String, Filter> filterMap = new LinkedHashMap<>();
-        // 设置自定义JWT过滤器
-        filterMap.put("jwtFilter", new JwtFilter());
+        // 设置自定义JWT过滤器，如果需要换名字，就在config中重新注入JwtFilter
+        filterMap.put("jwt", new JwtFilter());
         factoryBean.setFilters(filterMap);
         // 设置shiro管理器
         factoryBean.setSecurityManager(securityManager);
@@ -40,7 +40,7 @@ public class ShiroConfig {
 
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 设置拦截器
-        filterChainDefinitionMap.put("/**", "jwtFilter");
+        filterChainDefinitionMap.put("/**", "jwt");
         // 不走拦截器
         filterChainDefinitionMap.put("/error/**", "anon");
         factoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
