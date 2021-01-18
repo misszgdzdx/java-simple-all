@@ -26,7 +26,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 
         this.getSubject(request, response).login(token);
 
-        return super.onAccessDenied(request, response);
+        return true;
     }
 
     /**

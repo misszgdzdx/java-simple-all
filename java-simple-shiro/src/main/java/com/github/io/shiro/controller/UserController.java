@@ -4,26 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @description
- */
 @Controller
-public class LoginController {
+public class UserController {
 
-    /**
-     * 跳转登录页
-     */
-    @RequestMapping("/")
-    public String goLogin() {
-        return "welcome";
-    }
-
-    /**
-     * 登录
-     */
     @ResponseBody
-    @RequestMapping("login_in.json")
-    public Object loginIn() {
+    @RequestMapping("add_user.json")
+    public Object addUser() {
         return "success";
     }
+
 }
