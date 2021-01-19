@@ -39,10 +39,11 @@ public class ShiroConfig {
         factoryBean.setUnauthorizedUrl("/error/401.html");
 
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-        // 设置拦截器
-        filterChainDefinitionMap.put("/**", "jwt");
         // 不走拦截器
         filterChainDefinitionMap.put("/error/**", "anon");
+        filterChainDefinitionMap.put("/login_in.json", "anon");
+        // 设置拦截器
+        filterChainDefinitionMap.put("/**", "jwt");
         factoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return factoryBean;
     }

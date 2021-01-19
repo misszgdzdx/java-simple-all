@@ -23,9 +23,8 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         AuthenticationToken token = this.createToken(request, response);
-
+        // TODO 捕获异常，重试redis刷新token
         this.getSubject(request, response).login(token);
-
         return true;
     }
 
