@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +41,7 @@ public class LoginController {
     /**
      * 跳转登录页
      */
-    @RequestMapping("/")
+    @GetMapping("/")
     public String goLogin() {
         return "welcome";
     }
@@ -52,7 +50,7 @@ public class LoginController {
      * 登录
      */
     @ResponseBody
-    @RequestMapping("login_in.json")
+    @PostMapping(value = "login_in.json", produces = "application/json;charset=utf-8")
     public Object loginIn(@RequestBody User user) {
         User adminUser = userService.getUserByName(user.getUsername());
         if (ObjectUtils.isEmpty(adminUser)) {
