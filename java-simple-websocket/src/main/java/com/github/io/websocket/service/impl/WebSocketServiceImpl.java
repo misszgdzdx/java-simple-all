@@ -31,7 +31,7 @@ public class WebSocketServiceImpl implements WebSocketService {
 
         // 发送给订阅者，发送记录
         if (online) {
-            messagingTemplate.convertAndSend("/chat/single/" + record.getToUid(), record.getMsg());
+            messagingTemplate.convertAndSendToUser("user", "/chat/single/" + record.getToUid(), record.getMsg());
 
             // 更新数据库状态
             Query query = new Query();
